@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+
+<div id="chart" style="width:1000px; height:300px"></div>
+
+<script>
+    google.charts.load('current', {packages: ['corechart', 'line']});
+    google.charts.setOnLoadCallback(drawAxisTickColors);
+
+    function drawAxisTickColors() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'X');
+        data.addColumn('number', 'China Population');
+        data.addColumn('number', 'Indian Population');
+
+        data.addRows([
+            [1959, 0.655, 0.441], [1969, 0.796, 0.543], [1979, 0.969, 0.683], [1989, 1.119, 0.855],
+            [1999, 1.253, 1.038], [2009, 1.331, 1.218], [2018, 1.393, 1.353]
+        ]);
+
+        var options = {
+            hAxis: {
+                title: 'Recent 50 Years',
+                textStyle: {
+                    color: 'grey',
+                    fontSize: 20,
+                    fontName: 'Arial',
+                    bold: true,
+                    italic: true
+                },
+                titleTextStyle: {
+                    color: 'blue',
+                    fontSize: 16,
+                    fontName: 'Arial',
+                    bold: false,
+                    italic: true
+                }
+            },
+            vAxis: {
+                title: 'Population\n(billion)',
+                textStyle: {
+                    color: 'orange',
+                    fontSize: 20,
+                    bold: true
+                },
+                titleTextStyle: {
+                    color: 'pink',
+                    fontSize: 24,
+                    bold: true
+                }
+            },
+            title: 'Chinese & Indian Population',
+
+            colors: ['red', 'green'],
+            curveType: 'function',
+            legend: { position: 'right' }
+        };
+        var chart = new google.visualization.LineChart(document.getElementById('chart'));
+        chart.draw(data, options);
+    }
+</script>>
+
+</body>
+
+
+</html>

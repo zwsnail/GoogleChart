@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--Load the GoogleChart API-->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+<!--Div that will hold the pie chart-->
+<div id="linechart" style="width:1000px; height:300px"></div>
+</body>
+<script>
+    // Load the Visualization API and the line package.
+    google.charts.load('current', {packages: ['corechart', 'line']});
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawBasic);
+
+    // Callback that creates and populates a data table,
+    // instantiates the line chart, passes in the data and
+    // draws it.
+    function drawBasic() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'X');
+        data.addColumn('number', 'China Population');
+
+        data.addRows([
+            [1959, 0.655], [1969, 0.796], [1979, 0.969], [1989, 1.119],
+            [1999, 1.253], [2009, 1.331], [2018, 1.393]
+        ]);
+
+        var options = {
+            hAxis: {
+                title: 'Recent 50 Years(billion)'
+            },
+            vAxis: {
+                title: 'Population'
+            },
+        };
+
+
+        // Instantiate and draw chart, passing in some options.
+        var chart = new google.visualization.LineChart(document.getElementById('linechart'));
+        chart.draw(data, options);
+    }
+
+</script>
+</html>
+
+
+
+

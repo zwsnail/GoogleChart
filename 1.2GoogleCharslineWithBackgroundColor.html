@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+<div id="linechart" style="width:1000px; height:300px"></div>
+</body>
+<script>
+    google.charts.load('current', {packages: ['corechart', 'line']});
+    google.charts.setOnLoadCallback(drawBasic);
+
+    //have a background color
+    google.charts.setOnLoadCallback(drawBackgroundColor);
+
+    function drawBasic() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'X');
+        data.addColumn('number', 'China Population');
+
+        data.addRows([
+            [1959, 0.655], [1969, 0.796], [1979, 0.969], [1989, 1.119],
+            [1999, 1.253], [2009, 1.331], [2018, 1.393]
+        ]);
+
+        var options = {
+            hAxis: {
+                title: 'Recent 50 Years(billion)'
+            },
+            vAxis: {
+                title: 'Population'
+            },
+            backgroundColor: 'E0E0E0'
+
+        };
+
+
+        var chart = new google.visualization.LineChart(document.getElementById('linechart'));
+        chart.draw(data, options);
+    }
+
+</script>
+</html>
+
+
+
+

@@ -1,0 +1,46 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Years', 'China', 'Indian'],
+                ['1959', 0.655, 0.441],
+                ['1969', 0.796, 0.543],
+                ['1979', 0.969, 0.683],
+                ['1989', 1.119, 0.855],
+                ['1999', 1.253, 1.038],
+                ['2009', 1.331, 1.218],
+                ['2018', 1.393, 1.353]
+            ]);
+            var options = {
+
+                chart: {
+                    title: 'Chinese & Indian Population',
+                    subtitle: '(1959 - 2019)',
+                },
+                titleTextStyle: {
+                    color: '#336699',
+                    fontName:'Times New Roman',
+                    fontSize: 35,
+                    bold: true,
+                    italic: true
+                },
+                colors: ['#99CCCC', '#CCFFCC'],
+                backgroundColor: "#CC9999"
+
+            };
+
+
+
+            var chart = new google.charts.Bar(document.getElementById('columnchart'));
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+    </script>
+</head>
+<body>
+<div id="columnchart" style="width: 800px; height: 500px;"></div>
+</body>
+</html>
