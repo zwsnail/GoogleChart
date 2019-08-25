@@ -37,8 +37,13 @@
 
             colors: ['red'],
             title: 'Chinese Population within 50 Years',
-            curveType: 'function',
-            legend: { position: 'bottom' }
+            curveType: 'function',//make the line smooth
+            legend: { position: 'bottom' },//data index
+            animation: {// add this for animations 
+            startup: true,   
+            duration: 2000,
+            easing: 'out',
+            },
 
         };
 
